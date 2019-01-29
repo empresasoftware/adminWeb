@@ -80,3 +80,21 @@ export class MaterialFormsResolver implements Resolve<any> {
     });
   }
 }
+
+
+@Injectable()
+export class LoginFormsResolver implements Resolve<any> {
+
+  resolve(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const breadcrumbs = [
+        { url: '/forms/login', label: 'Login' }
+      ];
+
+      return resolve({
+        // breadcrumbs: breadcrumbs
+      });
+    });
+  }
+}
+

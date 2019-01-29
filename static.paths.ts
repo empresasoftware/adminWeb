@@ -5,6 +5,7 @@ export const ROUTES = [
   '/forms/extended-controls',
   '/forms/sample-layouts',
   '/forms/material-forms',
+  '/pages/login',
   '/forms/wizard',
   '/tables',
   '/tables/regular',

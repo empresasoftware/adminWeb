@@ -10,7 +10,8 @@ import {
   FormsExtendedControlsResolver,
   FormsLayoutsResolver,
   FormsWizardResolver,
-  MaterialFormsResolver
+  MaterialFormsResolver,
+  LoginFormsResolver
 } from './forms.resolver';
 
 import { ControlsAndValidationsPageComponent } from './pages/controls-and-validations/controls-and-validations.component';
@@ -18,6 +19,8 @@ import { ExtendedControlsPageComponent } from './pages/extended-controls/extende
 import { SampleLayoutsPageComponent } from './pages/sample-layouts/sample-layouts.component';
 import { WizardPageComponent } from './pages/wizard/wizard.component';
 import { MaterialFormsPageComponent } from './pages/material-forms/material-forms.component';
+import { LoginComponent } from '../src/app/pages/login/login.component';
+
 
 export const formsRoutes = [
   {
@@ -58,6 +61,13 @@ export const formsRoutes = [
     resolve: {
       data: MaterialFormsResolver
     }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    resolve: {
+      data: LoginFormsResolver
+    }
   }
 ];
 
@@ -67,7 +77,8 @@ export const formsRoutes = [
     ExtendedControlsPageComponent,
     SampleLayoutsPageComponent,
     WizardPageComponent,
-    MaterialFormsPageComponent
+    MaterialFormsPageComponent,
+    LoginComponent
   ],
   imports: [
     RouterModule.forChild(formsRoutes),
@@ -79,7 +90,8 @@ export const formsRoutes = [
     FormsExtendedControlsResolver,
     FormsLayoutsResolver,
     FormsWizardResolver,
-    MaterialFormsResolver
+    MaterialFormsResolver,
+    LoginFormsResolver
   ]
 })
 export class FormsModule { }
