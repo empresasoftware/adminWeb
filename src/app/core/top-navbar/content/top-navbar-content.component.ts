@@ -3,7 +3,7 @@ import { SideMenuService } from '../../side-menu/side-menu.service';
 import { ResponsiveBreakpointsService } from '../../responsive-breakpoints/responsive-breakpoints.service';
 import { APP_BASE_HREF } from '@angular/common';
 import { filter } from 'rxjs/operators';
-
+import * as JWT from 'jwt-decode'
 @Component({
   selector: 'app-top-navbar-content',
   styleUrls: ['./styles/top-navbar-content.scss'],
@@ -16,14 +16,17 @@ export class TopNavbarContentComponent {
 
   sideMenuVisible = true;
   baseUrl = '';
-
+  username = '';
   constructor(
     private sideMenuService: SideMenuService,
     private responsiveService: ResponsiveBreakpointsService,
     @Inject(APP_BASE_HREF) private baseHref: string
   ) {
     this.baseUrl = baseHref;
-
+    let tokenencoded = JSON.parse(localStorage.getItem('currentUser')).accessToken;
+    var decoded = JWT(tokenencoded)
+    this.username = decoded['nombre']
+    console.log(decoded['nombre'])
     responsiveService.responsiveSubject
       .pipe(
         filter(breakpoint => breakpoint.screen === 'xs-or-sm')

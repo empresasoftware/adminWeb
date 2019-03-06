@@ -1,88 +1,52 @@
-<div class="row">
-  <div class="col-md-6">
-    <div class="card">
-      <header class="row title">
-        <div class="col-xs-12 text-center">
-          <h2 class="main-title">Stacked Form</h2>
-        </div>
-      </header>
-      <form class="form-horizontal form-stacked" [formGroup]="formStacked">
-        <div class="form-group">
-          <label class="form-label col-xs-12" [attr.for]="'email_1'">EMAIL ADDRESS</label>
-          <div class="col-xs-12">
-            <input type="email" class="form-control" formControlName="email" [id]="'email_1'" placeholder="Email">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label col-xs-12" [attr.for]="'password_1'">PASSWORD</label>
-          <div class="col-xs-12">
-            <input type="password" class="form-control" formControlName="password" [id]="'password_1'" placeholder="Password">
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-xs-12">
-            <mat-checkbox disableRipple formControlName="newsletter">Subscribe to newsletter</mat-checkbox>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-xs-12">
-            <input class="btn btn-form" type="submit" [disabled]="!formStacked.valid" value="CREATE ACCOUNT">
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
 
-  <div class="col-md-6">
-    <div class="card">
-      <header class="row title">
-        <div class="col-xs-12 text-center">
-          <h2 class="main-title">Horizontal Form</h2>
-        </div>
-      </header>
-      <form class="form-horizontal" [formGroup]="formHorizontal">
-        <div class="form-group">
-          <label class="form-label col-sm-3" [attr.for]="'email_2'">EMAIL ADDRESS</label>
-          <div class="col-sm-8">
-            <input type="email" class="form-control" formControlName="email" [id]="'email_2'" placeholder="Email">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label col-sm-3" [attr.for]="'password_2'">PASSWORD</label>
-          <div class="col-sm-8">
-            <input type="password" class="form-control" formControlName="password" [id]="'password_2'" placeholder="Password">
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-8">
-            <mat-checkbox disableRipple formControlName="remember">Remember me</mat-checkbox>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-xs-12 text-right">
-            <input class="btn btn-form" type="submit" [disabled]="!formStacked.valid" value="CREATE ACCOUNT">
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
 
 <div class="row">
   <div class="col-md-6">
     <div class="card">
       <header class="row title">
         <div class="col-xs-12 text-center">
-          <h2 class="main-title">Register Form</h2>
+          <h2 class="main-title">Registro</h2>
         </div>
       </header>
       <form class="form-horizontal form-stacked" [formGroup]="formRegister">
         <div class="form-group">
-          <label class="form-label col-xs-12" [attr.for]="'email_3'">EMAIL ADDRESS<em>*</em></label>
+          <label class="form-label col-xs-12" [attr.for]="'email_3'">EMAIL<em>*</em></label>
           <div class="col-xs-12">
             <input type="email" class="form-control" formControlName="email" [id]="'email_3'">
           </div>
         </div>
+        <div class="form-group">
+          <label class="form-label col-xs-12" [attr.for]="'name_1'">NAME<em>*</em></label>
+          <div class="col-xs-12">
+            <input  class="form-control" formControlName="name" [id]="'name_1'">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label col-xs-12" [attr.for]="'username_1'">USERNAME<em>*</em></label>
+          <div class="col-xs-12">
+            <input  class="form-control" formControlName="username" [id]="'username_1'">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label col-xs-12" [attr.for]="'pais'">PAIS<em>*</em></label>
+          <div class="col-xs-12">
+            <input  class="form-control" formControlName="pais" [id]="'pais'">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label col-xs-12" [attr.for]="'pais'">FECHA DE NACIMIENTO<em>*</em></label>
+          <mat-form-field class="full-width">
+            <input matInput [matDatepicker]="picker"  placeholder="Your birthday" formControlName="birthday" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            
+          </mat-form-field>
+          
+            
+        
+        </div>
+        
         <div class="form-group">
           <label class="form-label col-xs-12" [attr.for]="'password_3'">PASSWORD<em>*</em></label>
           <div class="col-xs-12">
@@ -99,13 +63,11 @@
           <div class="col-xs-12">
             <span class="help-block"><em>*</em> Required fields.</span>
           </div>
-          <div class="col-xs-12">
-            <mat-checkbox disableRipple formControlName="newsletter">Suscribe to newsletter</mat-checkbox>
-          </div>
+          
         </div>
         <div class="form-group">
           <div class="col-xs-12">
-            <input class="btn btn-form btn-block" type="submit" [disabled]="!formRegister.valid" value="CREATE ACCOUNT">
+            <input class="btn btn-form btn-block" (click)="createCliente()" type="button" [disabled]="!formRegister.valid" value="CREAR CUENTA">
           </div>
         </div>
       </form>
@@ -116,7 +78,7 @@
     <div class="card">
       <header class="row title">
         <div class="col-xs-12 text-center">
-          <h2 class="main-title">Login Form</h2>
+          <h2 class="main-title">Inicio Sesión</h2>
         </div>
       </header>
       <form class="form-horizontal form-stacked" [formGroup]="formLogin">
@@ -139,7 +101,7 @@
         </div>
         <div class="form-group">
           <div class="col-xs-12 text-center">
-          <input class="btn btn-form" type="submit" [disabled]="!formLogin.valid" value="CREATE ACCOUNT">
+          <input class="btn btn-form"  (click)="onSubmit()"  type="button" [disabled]="!formLogin.valid" value="INGRESAR">
           </div>
         </div>
       </form>

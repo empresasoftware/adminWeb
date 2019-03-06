@@ -15,7 +15,7 @@
     <div class="user-image-wrapper">
       <app-preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="baseUrl + '/assets/imgs/profiles/profile9.jpeg'" alt="profile image" title="profile image"></app-preload-image>
     </div>
-    <span class="user-name">Alex Godoy</span>
+    <span class="user-name">{{username}}</span>
   </div>
 
   <app-messages-menu [messages]="messages"></app-messages-menu>

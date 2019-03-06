@@ -6,6 +6,7 @@ import { SERVICES_AUTH } from '../config.app';
 
 
 @Injectable({
+  
   providedIn: 'root'
 })
 export class AuthService {
@@ -46,16 +47,16 @@ export class AuthService {
       map(data => data.json())).toPromise()
   }
 
-  // getUser() {
-  //   let id = JSON.parse(localStorage.getItem('currentUser')).username;
-  //   let token = "Bearer " + JSON.parse(localStorage.getItem("currentUser")).accessToken
-  //   const headers = new Headers({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': token
-  //   })
-  //   return this.http.get(SERVICES_AUTH.GET_USER + id, { headers: headers}).pipe(
-  //     map(data => data.json())).toPromise()
-  // }
+  getUser() {
+    let id = JSON.parse(localStorage.getItem('currentUser')).username;
+    let token = "Bearer " + JSON.parse(localStorage.getItem("currentUser")).accessToken
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+      'Authorization': token
+    })
+    return this.http.get(SERVICES_AUTH.GET_USER + id, { headers: headers}).pipe(
+      map(data => data.json())).toPromise()
+  }
 
   // getUsers(){
   //   let token = "Bearer " + JSON.parse(localStorage.getItem("currentUser")).accessToken

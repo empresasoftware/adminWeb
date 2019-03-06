@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule } from '@angular/router';
-
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 
@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),
     HttpClientModule,
+    HttpModule,
     RouterModule.forRoot(rootRoutes, {
       // enableTracing :true, // For debugging
       preloadingStrategy: PreloadAllModules,
